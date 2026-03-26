@@ -207,6 +207,14 @@ const books = [
     price: 649,
     category: "Fiction",
     description: "Art and obsession"
+  },
+  {
+    id: 26,
+    title: "Dummy Book",
+    author: "Unknown",
+    price: 10,
+    category: "Fiction",
+    description: "A dummy book for testing"
   }
 ];
 
