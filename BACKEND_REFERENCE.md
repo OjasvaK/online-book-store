@@ -1,3 +1,8 @@
+// ============================================================================
+// BACKEND SERVER - COMPLETE PRODUCTION CODE
+// File: backend/server.js
+// ============================================================================
+
 // Import required packages
 const express = require('express');
 const Razorpay = require('razorpay');
@@ -8,6 +13,7 @@ require('dotenv').config();
 // Initialize Express app
 const app = express();
 
+// ==================== CORS CONFIGURATION ====================
 // CORS Configuration for production and development
 const allowedOrigins = [
   'http://localhost:3000',           // Local development
@@ -34,6 +40,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// ==================== ENVIRONMENT VALIDATION ====================
 // Validate required environment variables
 if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
   console.error('ERROR: Razorpay credentials are not configured!');
@@ -231,4 +238,48 @@ app.listen(PORT, () => {
   console.log(`  • POST   http://localhost:${PORT}/verify-payment`);
 });
 
-module.exports = app;
+// ============================================================================
+// BACKEND PACKAGE.JSON - REFERENCE
+// ============================================================================
+
+/*
+{
+  "name": "online-book-store-backend",
+  "version": "1.0.0",
+  "description": "Backend for Online Book Store with Razorpay payment integration",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "razorpay",
+    "payment",
+    "express",
+    "nodejs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "razorpay": "^2.9.2",
+    "crypto": "^1.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
+*/
+
+// ============================================================================
+// BACKEND .ENV - REFERENCE (Keep this in .gitignore - Never commit!)
+// ============================================================================
+
+/*
+RAZORPAY_KEY_ID=rzp_live_SUahG6dlANgZ71
+RAZORPAY_KEY_SECRET=93vJIjIKwJwivwewAWlymCHj
+NODE_ENV=production
+PORT=5000
+*/

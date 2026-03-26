@@ -14,8 +14,14 @@ function CartDrawer({ isOpen, onClose }) {
     return new Promise((resolve) => {
       const script = document.createElement('script');
       script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-      script.onload = () => resolve(true);
-      script.onerror = () => resolve(false);
+      script.onload = () => {
+        console.log('✓ Razorpay script loaded successfully');
+        resolve(true);
+      };
+      script.onerror = () => {
+        console.error('✗ Failed to load Razorpay script');
+        resolve(false);
+      };
       document.body.appendChild(script);
     });
   };
@@ -26,27 +32,28 @@ function CartDrawer({ isOpen, onClose }) {
       setIsProcessing(true);
       setPaymentStatus(null);
 
+      console.log('🔐 Initiating payment process...');
+      console.log('Backend URL:', BACKEND_URL);
+
       // Load Razorpay script
       const isScriptLoaded = await loadRazorpayScript();
       if (!isScriptLoaded) {
-        throw new Error('Failed to load Razorpay');
+        throw new Error('Failed to load Razorpay checkout script');
       }
 
       // Create order on backend
+      console.log('📦 Creating order with amount:', total * 100, 'paise');
       const orderResponse = await fetch(`${BACKEND_URL}/create-order`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
           amount: Math.round(total * 100), // Convert to paise
           currency: 'INR',
           receipt: `receipt_${Date.now()}`,
         }),
-      });
-
-      const orderData = await orderResponse.json();
-      if (!orderData.success) throw new Error(orderData.message || 'Failed to create order');
-
-      // Open Razorpay checkout
+      });ole.log('💳 Opening Razorpay checkout...');
       const options = {
         key: process.env.REACT_APP_RAZORPAY_KEY_ID,
         order_id: orderData.order.id,
@@ -55,17 +62,62 @@ function CartDrawer({ isOpen, onClose }) {
         name: 'Online Book Store',
         description: 'Purchase Books',
         handler: async (response) => {
-          // Verify payment on backend
-          const verifyResponse = await fetch(`${BACKEND_URL}/verify-payment`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              razorpay_order_id: response.razorpay_order_id,
-              razorpay_payment_id: response.razorpay_payment_id,
-              razorpay_signature: response.razorpay_signature,
-            }),
-          });
+          try {
+            console.log('✓ Payment completed, verifying signature...');
+            console.log('Payment response:', {
+              orderId: response.razorpay_order_id,
+              paymentId: response.razorpay_payment_id,
+            });
+            
+            // Verify payment on backend
+            const verifyResponse = await fetch(`${BACKEND_URL}/verify-payment`, {
+              method: 'POST',
+              headers: { 
+                'Content-Type': 'application/json',
+              console.log('✓✓ Payment verified successfully!');
+              setPaymentStatus({
+                type: 'success',
+                message: `✓ Payment successful! Order ID: ${response.razorpay_order_id}`,
+              });
+              clearCart();
+              setTimeout(() => {
+                onClose();
+                setPaymentStatus(null);
+              }, 3000);
+            } else {
+              const errorMsg = verifyData.message || 'Payment verification failed';
+              console.error('✗ Verification failed:', errorMsg);
+              throw new Error(errorMsg);
+            }
+          } catch (verifyError) {
+            console.error('Error during payment verification:', verifyError);
+            setPaymentStatus({
+              type: 'error',
+              message: `✗ Verification failed: ${verifyError.message}. Payment may have been completed but not verified.`,
+            });
+          }
+        },
+        prefill: {
+          name: 'Customer',
+          email: 'customer@example.com',
+          contact: '9999999999',
+        },
+        theme: { color: '#3399cc' },
+        modal: {
+          ondismiss: () => {
+            console.log('User closed Razorpay modal');
+            setPaymentStatus({
+              type: 'error',
+              message: 'Payment cancelled by user',
+            });
+          },
+        },
+      };
 
+      const razorpay = new window.Razorpay(options);
+      razorpay.open();
+    } catch (error) {
+      console.error('❌ Payment error:', error);
           const verifyData = await verifyResponse.json();
           if (verifyData.success) {
             setPaymentStatus({
