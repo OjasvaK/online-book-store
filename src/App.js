@@ -137,7 +137,7 @@ function App() {
               )}
 
               {/* Payment Button Component */}
-              {!paymentStatus?.type === 'success' && (
+              {paymentStatus?.type !== 'success' && (
                 <PaymentButton
                   amount={totalAmount}
                   onPaymentSuccess={handlePaymentSuccess}
