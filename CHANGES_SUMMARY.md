@@ -56,7 +56,7 @@ REACT_APP_BACKEND_URL=http://localhost:5000
 **After:**
 ```
 REACT_APP_RAZORPAY_KEY_ID=rzp_live_SUahG6dlANgZ71
-REACT_APP_BACKEND_URL=https://online-book-store-iru0.onrender.com
+REACT_APP_BACKEND_URL=https://online-book-store-ce1n.onrender.com
 ```
 
 **Status:** ✅ Complete

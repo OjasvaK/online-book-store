@@ -5,7 +5,7 @@
 | Environment | URL |
 |---|---|
 | **Local Development** | `http://localhost:5000` |
-| **Production (Render)** | `https://online-book-store-iru0.onrender.com` |
+| **Production (Render)** | `https://online-book-store-ce1n.onrender.com` |
 
 ---
 
@@ -17,7 +17,7 @@
 
 **Request:**
 ```
-GET https://online-book-store-iru0.onrender.com/
+GET https://online-book-store-ce1n.onrender.com/
 ```
 
 **Response (200 OK):**
@@ -34,7 +34,7 @@ GET https://online-book-store-iru0.onrender.com/
 
 **Example (curl):**
 ```bash
-curl https://online-book-store-iru0.onrender.com/
+curl https://online-book-store-ce1n.onrender.com/
 ```
 
 ---
@@ -45,7 +45,7 @@ curl https://online-book-store-iru0.onrender.com/
 
 **Request:**
 ```
-POST https://online-book-store-iru0.onrender.com/create-order
+POST https://online-book-store-ce1n.onrender.com/create-order
 Content-Type: application/json
 ```
 
@@ -97,7 +97,7 @@ Content-Type: application/json
 
 **Example (cURL):**
 ```bash
-curl -X POST https://online-book-store-iru0.onrender.com/create-order \
+curl -X POST https://online-book-store-ce1n.onrender.com/create-order \
   -H "Content-Type: application/json" \
   -d '{
     "amount": 50000,
@@ -108,7 +108,7 @@ curl -X POST https://online-book-store-iru0.onrender.com/create-order \
 
 **Example (JavaScript/Fetch):**
 ```javascript
-const response = await fetch('https://online-book-store-iru0.onrender.com/create-order', {
+const response = await fetch('https://online-book-store-ce1n.onrender.com/create-order', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
@@ -130,7 +130,7 @@ console.log(data.order.id); // Use this order ID in Razorpay checkout
 
 **Request:**
 ```
-POST https://online-book-store-iru0.onrender.com/verify-payment
+POST https://online-book-store-ce1n.onrender.com/verify-payment
 Content-Type: application/json
 ```
 
@@ -189,7 +189,7 @@ Content-Type: application/json
 
 **Example (JavaScript/Fetch):**
 ```javascript
-const response = await fetch('https://online-book-store-iru0.onrender.com/verify-payment', {
+const response = await fetch('https://online-book-store-ce1n.onrender.com/verify-payment', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({

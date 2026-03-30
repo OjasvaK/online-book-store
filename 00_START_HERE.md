@@ -143,7 +143,7 @@ https://online-book-store-pied.vercel.app
 
 ✅ Render will give you a URL like:
 ```
-https://online-book-store-iru0.onrender.com
+https://online-book-store-ce1n.onrender.com
 ```
 
 ✅ This is what's in your `.env` file already

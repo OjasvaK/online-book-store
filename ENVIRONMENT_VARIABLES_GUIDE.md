@@ -6,7 +6,7 @@ Location: `c:\Users\ojasva koolwal\online-book-store\.env`
 
 ```
 REACT_APP_RAZORPAY_KEY_ID=rzp_live_SUahG6dlANgZ71
-REACT_APP_BACKEND_URL=https://online-book-store-iru0.onrender.com
+REACT_APP_BACKEND_URL=https://online-book-store-ce1n.onrender.com
 ```
 
 **IMPORTANT NOTES:**
@@ -35,7 +35,7 @@ Set in Vercel Dashboard → Settings → Environment Variables:
 | Name | Value | Environments |
 |------|-------|---|
 | REACT_APP_RAZORPAY_KEY_ID | rzp_live_SUahG6dlANgZ71 | Production, Preview |
-| REACT_APP_BACKEND_URL | https://online-book-store-iru0.onrender.com | Production, Preview |
+| REACT_APP_BACKEND_URL | https://online-book-store-ce1n.onrender.com | Production, Preview |
 
 ## How CartDrawer.js Uses Environment Variables
 

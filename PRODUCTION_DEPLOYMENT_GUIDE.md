@@ -71,13 +71,13 @@ NODE_ENV=production
 1. Click **"Create Web Service"**
 2. Render will automatically deploy from your Git repository
 3. Wait for deployment to complete (check logs)
-4. Note your backend URL (should be: `https://online-book-store-iru0.onrender.com`)
+4. Note your backend URL (should be: `https://online-book-store-ce1n.onrender.com`)
 
 ### 1.6 Verify Backend is Working
 
 Test your backend:
 ```
-curl https://online-book-store-iru0.onrender.com/
+curl https://online-book-store-ce1n.onrender.com/
 ```
 
 You should see:
@@ -101,7 +101,7 @@ You should see:
 Your `.env` file already has:
 ```
 REACT_APP_RAZORPAY_KEY_ID=rzp_live_SUahG6dlANgZ71
-REACT_APP_BACKEND_URL=https://online-book-store-iru0.onrender.com
+REACT_APP_BACKEND_URL=https://online-book-store-ce1n.onrender.com
 ```
 
 ### 2.2 Test Locally First (Optional)
@@ -112,7 +112,7 @@ cd backend
 npm run dev
 
 # Terminal 2: Start frontend with production URL
-$env:REACT_APP_BACKEND_URL="https://online-book-store-iru0.onrender.com"
+$env:REACT_APP_BACKEND_URL="https://online-book-store-ce1n.onrender.com"
 npm start
 ```
 
@@ -146,7 +146,7 @@ If environment variables aren't already set in Vercel:
 
 3. Add:
    - Name: `REACT_APP_BACKEND_URL`
-   - Value: `https://online-book-store-iru0.onrender.com`
+   - Value: `https://online-book-store-ce1n.onrender.com`
    - Environments: Production
 
 4. Click **"Save"**

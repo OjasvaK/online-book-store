@@ -205,7 +205,7 @@ fetch(process.env.REACT_APP_BACKEND_URL + '/create-order', {
 curl http://localhost:5000/
 
 # Test Render backend
-curl https://online-book-store-iru0.onrender.com/
+curl https://online-book-store-ce1n.onrender.com/
 ```
 
 ### Check git configuration

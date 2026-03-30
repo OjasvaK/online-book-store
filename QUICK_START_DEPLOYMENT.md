@@ -74,13 +74,13 @@ ls  # Should see: server.js, package.json, .env
    ```
 6. Click "Create Web Service"
 7. Wait for deployment (2-5 minutes) ⏱️
-8. Copy your Render URL (e.g., `https://online-book-store-iru0.onrender.com`)
+8. Copy your Render URL (e.g., `https://online-book-store-ce1n.onrender.com`)
 
 ### Step 3: Verify Backend Works
 
 ```powershell
 # Test from PowerShell
-curl https://online-book-store-iru0.onrender.com/
+curl https://online-book-store-ce1n.onrender.com/
 
 # Should return JSON with endpoints
 ```
@@ -138,7 +138,7 @@ git push origin main
                         ↓
 ┌─────────────────────────────────────────────────────────┐
 │                   BACKEND (Express)                      │
-│      https://online-book-store-iru0.onrender.com        │
+│      https://online-book-store-ce1n.onrender.com        │
 │                                                          │
 │  POST /create-order      ← Creates Razorpay order      │
 │  POST /verify-payment    ← Verifies signature           │

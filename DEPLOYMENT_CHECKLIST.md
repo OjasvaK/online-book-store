@@ -21,7 +21,7 @@
   - `RAZORPAY_KEY_SECRET` = your live secret
   - `NODE_ENV` = production
 - [ ] **Step 6**: Deploy (wait for completion)
-- [ ] **Step 7**: Note your Render URL (e.g., `https://online-book-store-iru0.onrender.com`)
+- [ ] **Step 7**: Note your Render URL (e.g., `https://online-book-store-ce1n.onrender.com`)
 - [ ] **Step 8**: Test backend with curl:
   ```
   curl https://your-render-url.onrender.com/
@@ -74,7 +74,7 @@ PORT=5000 (optional - Render sets this automatically)
 
 ```
 REACT_APP_RAZORPAY_KEY_ID=rzp_live_SUahG6dlANgZ71
-REACT_APP_BACKEND_URL=https://online-book-store-iru0.onrender.com
+REACT_APP_BACKEND_URL=https://online-book-store-ce1n.onrender.com
 ```
 
 ## 🔐 Security Review

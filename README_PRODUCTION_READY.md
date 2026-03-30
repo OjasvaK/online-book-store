@@ -52,7 +52,7 @@ You asked me to fix and update your project for production deployment:
 ### Frontend Files
 | File | What Changed |
 |------|---|
-| `.env` | Updated backend URL to: `https://online-book-store-iru0.onrender.com` |
+| `.env` | Updated backend URL to: `https://online-book-store-ce1n.onrender.com` |
 | `src/components/CartDrawer.js` | Added comprehensive error handling, console logging, improved payment flow |
 
 ### Documentation Files Created
@@ -88,7 +88,7 @@ You asked me to fix and update your project for production deployment:
    NODE_ENV=production
 7. Click "Create Web Service"
 8. Wait 2-5 minutes for deployment
-9. Note your URL (e.g., https://online-book-store-iru0.onrender.com)
+9. Note your URL (e.g., https://online-book-store-ce1n.onrender.com)
 ```
 
 ### Step 2: Push Code to GitHub (2 minutes)
@@ -178,7 +178,7 @@ NODE_ENV=production
 
 ```
 REACT_APP_RAZORPAY_KEY_ID=rzp_live_SUahG6dlANgZ71
-REACT_APP_BACKEND_URL=https://online-book-store-iru0.onrender.com
+REACT_APP_BACKEND_URL=https://online-book-store-ce1n.onrender.com
 ```
 
 ---
@@ -189,7 +189,7 @@ When payment works, you'll see in F12 → Console:
 
 ```
 🔐 Initiating payment process...
-Backend URL: https://online-book-store-iru0.onrender.com
+Backend URL: https://online-book-store-ce1n.onrender.com
 ✓ Razorpay script loaded successfully
 📦 Creating order with amount: 50000 paise
 ✓ Order created: {...}
@@ -272,7 +272,7 @@ Before going live:
 ✅ Everything is documented
 ✅ Payment flow has been tested
 
-⚠️ NOTE: Your Render URL is: `https://online-book-store-iru0.onrender.com`  
+⚠️ NOTE: Your Render URL is: `https://online-book-store-ce1n.onrender.com`  
 ⚠️ NOTE: Your Vercel URL is: `https://online-book-store-pied.vercel.app`  
 ⚠️ NOTE: Free tier Render apps sleep after 15 minutes (upgrade to Pro for always-on)
 
