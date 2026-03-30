@@ -132,8 +132,8 @@ function CartDrawer({ isOpen, onClose })
       console.log('🔐 Initiating payment process...');
       console.log('API Base URL:', API_BASE);
 
-      const subtotal = calculateSubtotal();
-      const gst = calculateGST();
+      // const subtotal = calculateSubtotal();
+      // const gst = calculateGST();
       const total = calculateTotal();
 
       // Step 1: Load Razorpay script
@@ -164,7 +164,7 @@ function CartDrawer({ isOpen, onClose })
             });
 
             // Step 4: Verify payment on backend
-            const verifyResult = await verifyPayment(paymentResponse);
+           await verifyPayment(paymentResponse);
 
             // Step 5: Payment successful
             console.log('✓✓ Payment verified successfully!');
