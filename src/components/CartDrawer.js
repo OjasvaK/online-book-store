@@ -228,16 +228,16 @@ function CartDrawer({ isOpen, onClose })
   if (!isOpen) return null;
 
   return (
-    <div className="drawer-overlay" onClick={onClose}>
-      <div className="drawer-content" onClick={(e) => e.stopPropagation()}>
-        <div className="drawer-header">
+    <>
+      <div className="cart-drawer open">
+        <div className="cart-header">
           <h2>Shopping Cart</h2>
-          <button className="drawer-close" onClick={onClose}>
+          <button className="close-btn" onClick={onClose}>
             ✕
           </button>
         </div>
 
-        <div className="drawer-items">
+        <div className="cart-items-container">
           {cart.length === 0 ? (
             <p className="empty-cart">Your cart is empty</p>
           ) : (
@@ -248,20 +248,18 @@ function CartDrawer({ isOpen, onClose })
         </div>
 
         {cart.length > 0 && (
-          <div className="drawer-footer">
-            <div className="price-details">
-              <div className="price-row">
-                <span>Subtotal:</span>
-                <span>₹{subtotal.toFixed(2)}</span>
-              </div>
-              <div className="price-row">
-                <span>GST (18%):</span>
-                <span>₹{gst.toFixed(2)}</span>
-              </div>
-              <div className="price-row total">
-                <span>Total:</span>
-                <span>₹{total.toFixed(2)}</span>
-              </div>
+          <div className="cart-footer">
+            <div className="summary-row">
+              <span className="summary-label">Subtotal:</span>
+              <span className="summary-value">₹{subtotal.toFixed(2)}</span>
+            </div>
+            <div className="summary-row gst">
+              <span className="summary-label">GST (18%):</span>
+              <span className="summary-value">₹{gst.toFixed(2)}</span>
+            </div>
+            <div className="summary-row total">
+              <span className="summary-label">Total:</span>
+              <span className="summary-value">₹{total.toFixed(2)}</span>
             </div>
 
             {paymentStatus && (
@@ -280,7 +278,8 @@ function CartDrawer({ isOpen, onClose })
           </div>
         )}
       </div>
-    </div>
+      <div className="overlay active" onClick={onClose}></div>
+    </>
   );
 }
 

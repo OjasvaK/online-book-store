@@ -154,17 +154,11 @@ function App() {
       </main>
 
       {/* Cart Drawer */}
-      <CartDrawer 
-        isOpen={isCartOpen} 
-        onClose={() => setIsCartOpen(false)}
-      />
-
-      {/* Overlay */}
       {isCartOpen && (
-        <div 
-          className="overlay active" 
-          onClick={() => setIsCartOpen(false)}
-        ></div>
+        <CartDrawer 
+          isOpen={isCartOpen} 
+          onClose={() => setIsCartOpen(false)}
+        />
       )}
     </div>
   );
