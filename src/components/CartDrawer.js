@@ -132,8 +132,6 @@ function CartDrawer({ isOpen, onClose })
       console.log('🔐 Initiating payment process...');
       console.log('API Base URL:', API_BASE);
 
-      const subtotal = calculateSubtotal();
-      const gst = calculateGST();
       const total = calculateTotal();
 
       // Step 1: Load Razorpay script
